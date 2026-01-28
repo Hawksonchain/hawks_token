@@ -6,77 +6,155 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #001f3f;
-  color: white;
-  text-align: center;
+:root {
+  --navy: #001f3f;
+  --dark: #00162e;
+  --green: #69be28;
+  --light: #e6f2ff;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, var(--navy), var(--dark));
+  color: var(--light);
+}
+
+/* HEADER */
 header {
-  padding: 30px 20px;
-  background: #001a33;
+  padding: 25px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header h1 {
-  color: #69be28;
-  font-size: 48px;
-  margin: 0;
+  color: var(--green);
+  font-size: 28px;
+  letter-spacing: 2px;
 }
 
-header p {
-  margin-top: 10px;
+nav a {
+  margin-left: 25px;
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
+/* HERO */
+.hero {
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 64px;
+  color: var(--green);
+  letter-spacing: 4px;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 25px auto 40px;
+  font-size: 20px;
   opacity: 0.9;
 }
 
-section {
-  padding: 50px 20px;
-}
-
-.dark {
-  background: #001a33;
-}
-
-button {
-  padding: 14px 30px;
+.hero .buttons a {
+  display: inline-block;
+  padding: 15px 34px;
   margin: 10px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  border-radius: 6px;
-}
-
-.buy {
-  background: #69be28;
-  color: black;
-}
-
-.contract {
-  background: #003366;
-  color: white;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  margin: 8px 0;
-}
-
-a {
-  color: #69be28;
+  border-radius: 40px;
+  font-weight: 700;
   text-decoration: none;
-  font-weight: bold;
 }
 
+.btn-buy {
+  background: var(--green);
+  color: #000;
+}
+
+.btn-contract {
+  border: 2px solid var(--green);
+  color: var(--green);
+}
+
+/* SECTIONS */
+section {
+  padding: 100px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+section h3 {
+  font-size: 42px;
+  text-align: center;
+  margin-bottom: 60px;
+  color: var(--green);
+}
+
+/* TOKENOMICS */
+.token-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.token-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 30px;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.token-box h4 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.token-box p {
+  opacity: 0.85;
+}
+
+/* COMMUNITY */
+.community {
+  text-align: center;
+}
+
+.socials a {
+  display: inline-block;
+  margin: 15px;
+  padding: 14px 28px;
+  border-radius: 30px;
+  border: 2px solid var(--green);
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.socials a:hover {
+  background: var(--green);
+  color: #000;
+}
+
+/* FOOTER */
 footer {
-  padding: 20px;
-  font-size: 12px;
-  background: #001a33;
-  opacity: 0.7;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 13px;
+  opacity: 0.6;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 </style>
 </head>
@@ -85,42 +163,59 @@ footer {
 
 <header>
   <h1>$HAWKS</h1>
-  <p>Seattle-inspired community memecoin</p>
-
-  <button class="buy">Buy Token</button>
-  <button class="contract" onclick="copyContract()">Copy Contract</button>
+  <nav>
+    <a href="#tokenomics">Tokenomics</a>
+    <a href="#community">Community</a>
+  </nav>
 </header>
 
-<section>
-  <h2>What is $HAWKS?</h2>
+<div class="hero">
+  <h2>$HAWKS</h2>
   <p>
-    $HAWKS is a community-driven memecoin inspired by Seattle football culture.
-    This is not an official or affiliated project.
+    Seattle-inspired memecoin built on community, noise and on-chain loyalty.
+    No affiliation. Pure football energy.
   </p>
+  <div class="buttons">
+    <a href="#" class="btn-buy">Buy Token</a>
+    <a href="#" class="btn-contract" onclick="copyContract()">Copy Contract</a>
+  </div>
+</div>
+
+<section id="tokenomics">
+  <h3>Tokenomics</h3>
+  <div class="token-grid">
+    <div class="token-box">
+      <h4>Total Supply</h4>
+      <p>1,000,000,000</p>
+    </div>
+    <div class="token-box">
+      <h4>Tax</h4>
+      <p>0%</p>
+    </div>
+    <div class="token-box">
+      <h4>Liquidity</h4>
+      <p>Locked</p>
+    </div>
+    <div class="token-box">
+      <h4>Ownership</h4>
+      <p>Renounced</p>
+    </div>
+  </div>
 </section>
 
-<section class="dark">
-  <h2>Tokenomics</h2>
-  <ul>
-    <li>Total Supply: 1,000,000,000</li>
-    <li>Tax: 0%</li>
-    <li>Liquidity: Locked</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Community</h2>
-  <p>
-    <a href="https://x.com/" target="_blank">X (Twitter)</a> |
+<section id="community" class="community">
+  <h3>Community</h3>
+  <div class="socials">
+    <a href="https://x.com/" target="_blank">X / Twitter</a>
     <a href="https://t.me/" target="_blank">Telegram</a>
-  </p>
-  <p style="margin-top:15px; font-size:14px;">
-    ⚠️ We will never DM you first. Beware of scams.
+  </div>
+  <p style="margin-top:25px; opacity:0.8;">
+    ⚠️ We will never DM you first.
   </p>
 </section>
 
 <footer>
-  <p>Not affiliated with any official sports organization.</p>
+  Not affiliated with any official sports organization. Entertainment only.
 </footer>
 
 <script>
