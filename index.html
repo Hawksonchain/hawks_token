@@ -6,155 +6,172 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-:root {
-  --navy: #001f3f;
-  --dark: #00162e;
-  --green: #69be28;
-  --light: #e6f2ff;
+:root{
+  --bg:#050b18;
+  --navy:#071a33;
+  --green:#69be28;
+  --text:#eaf1ff;
+  --muted:#9fb0cc;
+  --glass:rgba(255,255,255,0.06);
+  --border:rgba(255,255,255,0.12);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-body {
-  background: linear-gradient(180deg, var(--navy), var(--dark));
-  color: var(--light);
+body{
+  background:
+    radial-gradient(1200px 600px at 70% -10%, rgba(105,190,40,0.15), transparent),
+    linear-gradient(180deg, var(--bg), var(--navy));
+  color:var(--text);
+  overflow-x:hidden;
 }
 
 /* HEADER */
-header {
-  padding: 25px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:28px 64px;
 }
 
-header h1 {
-  color: var(--green);
-  font-size: 28px;
-  letter-spacing: 2px;
+header .logo{
+  font-weight:800;
+  letter-spacing:3px;
+  color:var(--green);
+  font-size:22px;
 }
 
-nav a {
-  margin-left: 25px;
-  color: var(--light);
-  text-decoration: none;
-  font-weight: 600;
-  opacity: 0.85;
+nav a{
+  margin-left:32px;
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:600;
 }
 
-nav a:hover {
-  opacity: 1;
-}
+nav a:hover{ color:var(--text); }
 
 /* HERO */
-.hero {
-  padding: 120px 20px;
-  text-align: center;
+.hero{
+  padding:140px 20px 160px;
+  text-align:center;
 }
 
-.hero h2 {
-  font-size: 64px;
-  color: var(--green);
-  letter-spacing: 4px;
+.hero h1{
+  font-size:96px;
+  letter-spacing:10px;
+  color:var(--green);
+  text-shadow:0 0 40px rgba(105,190,40,0.35);
 }
 
-.hero p {
-  max-width: 650px;
-  margin: 25px auto 40px;
-  font-size: 20px;
-  opacity: 0.9;
+.hero p{
+  max-width:720px;
+  margin:32px auto 56px;
+  font-size:22px;
+  color:var(--muted);
 }
 
-.hero .buttons a {
-  display: inline-block;
-  padding: 15px 34px;
-  margin: 10px;
-  border-radius: 40px;
-  font-weight: 700;
-  text-decoration: none;
+.hero .actions a{
+  display:inline-block;
+  margin:10px 16px;
+  padding:18px 42px;
+  border-radius:999px;
+  font-weight:800;
+  text-decoration:none;
+  font-size:16px;
 }
 
-.btn-buy {
-  background: var(--green);
-  color: #000;
+.buy{
+  background:var(--green);
+  color:#020b02;
+  box-shadow:0 0 40px rgba(105,190,40,0.4);
 }
 
-.btn-contract {
-  border: 2px solid var(--green);
-  color: var(--green);
+.contract{
+  border:2px solid var(--green);
+  color:var(--green);
 }
 
 /* SECTIONS */
-section {
-  padding: 100px 20px;
-  max-width: 1100px;
-  margin: auto;
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:120px 20px;
 }
 
-section h3 {
-  font-size: 42px;
-  text-align: center;
-  margin-bottom: 60px;
-  color: var(--green);
+section h2{
+  font-size:56px;
+  text-align:center;
+  margin-bottom:80px;
+  color:var(--green);
+  letter-spacing:4px;
 }
 
 /* TOKENOMICS */
-.token-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:32px;
 }
 
-.token-box {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
-  padding: 30px;
-  border-radius: 18px;
-  text-align: center;
+.card{
+  background:var(--glass);
+  border:1px solid var(--border);
+  backdrop-filter:blur(12px);
+  border-radius:24px;
+  padding:36px;
+  text-align:center;
 }
 
-.token-box h4 {
-  font-size: 22px;
-  margin-bottom: 10px;
+.card h3{
+  font-size:22px;
+  margin-bottom:12px;
 }
 
-.token-box p {
-  opacity: 0.85;
+.card p{
+  color:var(--muted);
+  font-size:18px;
 }
 
 /* COMMUNITY */
-.community {
-  text-align: center;
+.community{
+  text-align:center;
 }
 
-.socials a {
-  display: inline-block;
-  margin: 15px;
-  padding: 14px 28px;
-  border-radius: 30px;
-  border: 2px solid var(--green);
-  color: var(--green);
-  text-decoration: none;
-  font-weight: 700;
+.socials a{
+  display:inline-block;
+  margin:18px;
+  padding:18px 40px;
+  border-radius:999px;
+  border:2px solid var(--green);
+  color:var(--green);
+  text-decoration:none;
+  font-weight:800;
 }
 
-.socials a:hover {
-  background: var(--green);
-  color: #000;
+.socials a:hover{
+  background:var(--green);
+  color:#020b02;
 }
 
 /* FOOTER */
-footer {
-  text-align: center;
-  padding: 40px 20px;
-  font-size: 13px;
-  opacity: 0.6;
-  border-top: 1px solid rgba(255,255,255,0.1);
+footer{
+  padding:60px 20px;
+  text-align:center;
+  font-size:13px;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  header{padding:24px;}
+  .hero h1{font-size:64px; letter-spacing:6px;}
+  section h2{font-size:40px;}
 }
 </style>
 </head>
@@ -162,7 +179,7 @@ footer {
 <body>
 
 <header>
-  <h1>$HAWKS</h1>
+  <div class="logo">$HAWKS</div>
   <nav>
     <a href="#tokenomics">Tokenomics</a>
     <a href="#community">Community</a>
@@ -170,46 +187,46 @@ footer {
 </header>
 
 <div class="hero">
-  <h2>$HAWKS</h2>
+  <h1>$HAWKS</h1>
   <p>
-    Seattle-inspired memecoin built on community, noise and on-chain loyalty.
-    No affiliation. Pure football energy.
+    A Seattle-inspired memecoin built around football energy,
+    loyalty and on-chain culture. No affiliation. No compromises.
   </p>
-  <div class="buttons">
-    <a href="#" class="btn-buy">Buy Token</a>
-    <a href="#" class="btn-contract" onclick="copyContract()">Copy Contract</a>
+  <div class="actions">
+    <a href="#" class="buy">Buy Token</a>
+    <a href="#" class="contract" onclick="copyContract()">Copy Contract</a>
   </div>
 </div>
 
 <section id="tokenomics">
-  <h3>Tokenomics</h3>
-  <div class="token-grid">
-    <div class="token-box">
-      <h4>Total Supply</h4>
+  <h2>Tokenomics</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Total Supply</h3>
       <p>1,000,000,000</p>
     </div>
-    <div class="token-box">
-      <h4>Tax</h4>
+    <div class="card">
+      <h3>Tax</h3>
       <p>0%</p>
     </div>
-    <div class="token-box">
-      <h4>Liquidity</h4>
+    <div class="card">
+      <h3>Liquidity</h3>
       <p>Locked</p>
     </div>
-    <div class="token-box">
-      <h4>Ownership</h4>
+    <div class="card">
+      <h3>Ownership</h3>
       <p>Renounced</p>
     </div>
   </div>
 </section>
 
 <section id="community" class="community">
-  <h3>Community</h3>
+  <h2>Community</h2>
   <div class="socials">
     <a href="https://x.com/" target="_blank">X / Twitter</a>
     <a href="https://t.me/" target="_blank">Telegram</a>
   </div>
-  <p style="margin-top:25px; opacity:0.8;">
+  <p style="margin-top:30px; color:var(--muted);">
     ⚠️ We will never DM you first.
   </p>
 </section>
@@ -220,10 +237,9 @@ footer {
 
 <script>
 const CONTRACT = "0x0000000000000000000000000000000000000000";
-
-function copyContract() {
+function copyContract(){
   navigator.clipboard.writeText(CONTRACT);
-  alert("Contract address copied!");
+  alert("Contract address copied");
 }
 </script>
 
