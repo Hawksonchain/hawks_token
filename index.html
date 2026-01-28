@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>$HAWKS – Seattle Meme Token</title>
-  <meta name="description" content="$HAWKS is a clean, community-driven Seattle football meme token. Green energy only." />
+  <title>$PATS – New England Meme Token</title>
+  <meta name="description" content="$PATS is a clean, community-driven New England football meme token. Dynasty energy only." />
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #050806;
-      --panel: #0b120d;
-      --green: #69BE28; /* Seahawks green */
-      --green-soft: rgba(105,190,40,.15);
-      --text: #e8f3ec;
-      --muted: #9fb3a6;
+      --bg: #05070b;
+      --panel: #0c1220;
+      --blue: #002244; /* Patriots navy */
+      --red: #c60c30; /* Patriots red */
+      --soft: rgba(198,12,48,.15);
+      --text: #eef2f7;
+      --muted: #aab4c3;
     }
 
     * { box-sizing: border-box; }
@@ -24,7 +25,7 @@
     body {
       margin: 0;
       font-family: Inter, system-ui, sans-serif;
-      background: radial-gradient(1000px 500px at 50% -10%, rgba(105,190,40,.15), transparent), var(--bg);
+      background: radial-gradient(1000px 500px at 50% -10%, rgba(198,12,48,.15), transparent), var(--bg);
       color: var(--text);
     }
 
@@ -46,7 +47,7 @@
     .logo {
       font-weight: 800;
       letter-spacing: 1px;
-      color: var(--green);
+      color: var(--red);
     }
 
     .nav a {
@@ -64,13 +65,13 @@
     .hero img {
       width: 120px;
       margin-bottom: 24px;
-      filter: drop-shadow(0 0 20px rgba(105,190,40,.4));
+      filter: drop-shadow(0 0 20px rgba(198,12,48,.4));
     }
 
     .hero h1 {
       font-size: clamp(52px, 9vw, 96px);
       margin: 0 0 16px;
-      color: var(--green);
+      color: var(--red);
       letter-spacing: 2px;
     }
 
@@ -91,15 +92,15 @@
     .btn {
       padding: 14px 28px;
       border-radius: 999px;
-      border: 1px solid var(--green-soft);
+      border: 1px solid var(--soft);
       background: transparent;
       color: var(--text);
       font-weight: 600;
     }
 
     .btn.primary {
-      background: var(--green);
-      color: #081006;
+      background: linear-gradient(135deg, var(--red), #ff5b76);
+      color: #080b14;
       border: none;
     }
 
@@ -112,7 +113,7 @@
       text-align: center;
       margin-bottom: 40px;
       letter-spacing: 2px;
-      color: var(--green);
+      color: var(--red);
     }
 
     .grid {
@@ -123,7 +124,7 @@
 
     .card {
       background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
-      border: 1px solid var(--green-soft);
+      border: 1px solid var(--soft);
       border-radius: 18px;
       padding: 28px;
       text-align: center;
@@ -132,7 +133,7 @@
     .big {
       font-size: 34px;
       font-weight: 800;
-      color: var(--green);
+      color: var(--red);
     }
 
     .muted {
@@ -150,7 +151,7 @@
     .gallery img {
       width: 100%;
       border-radius: 16px;
-      border: 1px solid var(--green-soft);
+      border: 1px solid var(--soft);
     }
 
     footer {
@@ -160,29 +161,28 @@
       margin-top: 80px;
     }
 
-    .warn { color: #c6ff9a; }
+    .warn { color: #ff9aa8; }
   </style>
 </head>
 <body>
   <div class="wrap">
 
     <header>
-      <div class="logo">$HAWKS</div>
+      <div class="logo">$PATS</div>
       <div class="nav">
         <a href="#tokenomics">Tokenomics</a>
-        <a href="#seattle">Seattle</a>
+        <a href="#patriots">Patriots</a>
         <a href="#community">Community</a>
       </div>
     </header>
 
     <!-- HERO -->
     <section class="hero">
-      <!-- Replace src with your own Seahawks-style logo if you want -->
-      <img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Seattle_Seahawks_logo.svg" alt="Seahawks Logo">
-      <h1>$HAWKS</h1>
+      <img src="images/pats-logo.png" alt="Patriots Inspired Logo">
+      <h1>$PATS</h1>
       <p>
-        Seattle energy on-chain. A clean football meme token
-        built for community, rivalry and green chaos.
+        Dynasty mindset on-chain. A New England football meme token
+        built for legacy, rivalry and cold-blooded wins.
       </p>
       <div class="cta">
         <a class="btn primary" href="#">BUY ON DEX</a>
@@ -202,13 +202,13 @@
       </div>
     </section>
 
-    <!-- SEATTLE GALLERY -->
-    <section id="seattle" class="section">
-      <h2>SEAHAWKS ENERGY</h2>
+    <!-- PATRIOTS GALLERY -->
+    <section id="patriots" class="section">
+      <h2>PATRIOTS ENERGY</h2>
       <div class="gallery">
-        <img src="images/stadium.jpg" alt="Seahawks Stadium">
-        <img src="images/game.jpg" alt="Seahawks Game">
-        <img src="images/fans.jpg" alt="12th Man Seahawks">
+        <img src="images/stadium.jpg" alt="Patriots Stadium">
+        <img src="images/game.jpg" alt="Patriots Game">
+        <img src="images/fans.jpg" alt="Patriots Fans">
       </div>
     </section>
 
@@ -216,9 +216,9 @@
     <section id="community" class="section">
       <h2>COMMUNITY</h2>
       <div class="grid">
-        <a class="card" href="https://x.com/onchain_hawks" target="_blank">🐦 X / @onchain_hawks</a>
-        <a class="card" href="#" target="_blank">💬 Telegram</a>
-        <a class="card" href="#" target="_blank">📊 DEX</a>
+        <a class="card" href="#">🐦 X / Twitter</a>
+        <a class="card" href="#">💬 Telegram</a>
+        <a class="card" href="#">📊 DEX</a>
       </div>
     </section>
 
