@@ -162,6 +162,24 @@
 
     .warn { color: #c6ff9a; }
   </style>
+  .contract {
+  margin: 12px auto 28px;
+  font-size: 14px;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.contract span {
+  color: var(--green);
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.contract:hover span {
+  text-decoration: underline;
+}
+
 </head>
 <body>
   <div class="wrap">
@@ -180,13 +198,17 @@
       <!-- Replace src with your own Seahawks-style logo if you want -->
       <img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Seattle_Seahawks_logo.svg" alt="Seahawks Logo">
       <h1>$HAWKS</h1>
+      <div class="contract" onclick="copyContract()">
+  Contract: <span>BKegQEGupmk82kKk2nGJaXJCfNbnccY8ZydEkLctpump</span>
+</div>
+
       <p>
         Seattle energy on-chain. A clean football meme token
         built for community, rivalry and green chaos.
       </p>
       <div class="cta">
         <a class="btn primary" href="#">BUY ON DEX</a>
-<a class="btn" href="#" onclick="copyContract()">VIEW CONTRACT</a>
+
 
         <a class="btn" href="#community">JOIN TELEGRAM</a>
       </div>
