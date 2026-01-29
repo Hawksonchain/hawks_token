@@ -186,7 +186,8 @@
       </p>
       <div class="cta">
         <a class="btn primary" href="#">BUY ON DEX</a>
-        <a class="btn" href="#">VIEW CONTRACT</a>
+<a class="btn" href="#" onclick="copyContract()">VIEW CONTRACT</a>
+
         <a class="btn" href="#community">JOIN TELEGRAM</a>
       </div>
     </section>
@@ -229,5 +230,14 @@
     </footer>
 
   </div>
+  <script>
+const CONTRACT_ADDRESS = "BKegQEGupmk82kKk2nGJaXJCfNbnccY8ZydEkLctpump";
+
+function copyContract() {
+  navigator.clipboard.writeText(CONTRACT_ADDRESS);
+  alert("Contract address copied:\n" + CONTRACT_ADDRESS);
+}
+</script>
+
 </body>
 </html>
