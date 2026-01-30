@@ -12,7 +12,7 @@
 :root {
   --bg:#050806;
   --panel:#0b120d;
-  --green:#69BE28;
+  --green:#69BE28; /* HAWKS GREEN */
   --green-soft:rgba(105,190,40,.15);
   --text:#e8f3ec;
   --muted:#9fb3a6;
@@ -80,7 +80,8 @@ header{
 .cta{
   display:flex;
   justify-content:center;
-  gap:16px;
+  align-items: center; /* Fontos a középre igazításhoz */
+  gap:20px;
   flex-wrap:wrap;
 }
 
@@ -97,6 +98,60 @@ header{
   background:var(--green);
   color:#081006;
   border:none;
+}
+
+/* --- VISSZASZÁMLÁLÓ STÍLUS (HAWKS GREEN) --- */
+#countdown-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.launch-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#countdown {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text);
+    text-shadow: 0 0 15px rgba(105,190,40,.6); /* Zöld ragyogás */
+    line-height: 1;
+    font-family: 'Inter', sans-serif;
+}
+
+#countdown span {
+    color: var(--green); /* A számok zöldek */
+}
+
+#launch-message {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--green);
+    text-shadow: 0 0 20px rgba(105,190,40,.8);
+    text-transform: uppercase;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Mobilos igazítás */
+@media (max-width: 600px) {
+    .cta { flex-direction: column; width: 100%; gap: 20px; }
+    .btn { width: 100%; text-align: center; }
+    #countdown-container { margin: 10px 0; order: -1; } /* Mobilon felülre tesszük */
 }
 
 /* SECTIONS */
@@ -163,9 +218,20 @@ footer{
     A clean, community-driven meme token built on rivalry,
     loyalty and green chaos.
   </p>
+  
   <div class="cta">
     <a class="btn primary" href="#">BUY ON DEX</a>
-    <a class="btn" href="#" onclick="copyContract()">VIEW CONTRACT</a>
+    
+    <div id="countdown-container">
+        <div class="launch-label">LAUNCH SOON</div>
+        
+        <div id="countdown">
+            <span id="days">00</span>d <span id="hours">00</span>h <span id="minutes">00</span>m <span id="seconds">00</span>s
+        </div>
+        
+        <div id="launch-message" style="display: none;">🚀 LAUNCH LIVE 🚀</div>
+    </div>
+
     <a class="btn" href="#community">JOIN TELEGRAM</a>
   </div>
 </section>
@@ -197,9 +263,42 @@ footer{
 </div>
 
 <script>
-const CONTRACT_ADDRESS = "BKegQEGupmk82kKk2nGJaXJCfNbnccY8ZydEkLctpump";
+// Dátum: 2026. Február 1. - 18:00:00
+const countDownDate = new Date("Feb 1, 2026 18:00:00").getTime();
+
+const x = setInterval(function() {
+  const now = new Date().getTime();
+  const distance = countDownDate - now;
+
+  // Számítás
+  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // 0 hozzáadása ha 10 alatt van
+  days = days < 10 ? "0" + days : days;
+  hours = hours < 10 ? "0" + hours : hours;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  // Kiírás
+  document.getElementById("days").innerHTML = days;
+  document.getElementById("hours").innerHTML = hours;
+  document.getElementById("minutes").innerHTML = minutes;
+  document.getElementById("seconds").innerHTML = seconds;
+
+  // Ha lejárt
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").style.display = "none";
+    document.querySelector(".launch-label").style.display = "none";
+    document.getElementById("launch-message").style.display = "block";
+  }
+}, 1000);
 
 function copyContract() {
+  const CONTRACT_ADDRESS = "BKegQEGupmk82kKk2nGJaXJCfNbnccY8ZydEkLctpump";
   navigator.clipboard.writeText(CONTRACT_ADDRESS);
   alert("Contract address copied");
 }
